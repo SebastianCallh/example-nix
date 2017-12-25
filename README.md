@@ -642,18 +642,18 @@ project's root directory (Projectile provides much more, though):
        `(
             (styx .
                 ,(lambda (root)
-                    (dante-repl-by-file root "styx.yaml"
+                    (dante-repl-by-file root '("styx.yaml")
                         '("styx" "repl"))))
             (nix-new .
                 ,(lambda (root)
                     (dante-repl-by-file
                         (projectile-project-root)
-                        "shell.nix"
+                        '("shell.nix")
                         `("nix-shell" "--run" "cabal new-repl"
                             ,(concat (projectile-project-root) "/shell.nix")))))
             (stack .
                 ,(lambda (root)
-                    (dante-repl-by-file root "stack.yaml"
+                    (dante-repl-by-file root '("stack.yaml")
                         '("stack" "repl"))))
             (bare  . ,(lambda (_) '("cabal" "repl")))))
 ```
